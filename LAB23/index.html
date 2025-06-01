@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Показати / Сховати текст</title>
+  <style>
+    #textBlock {
+      display: none;
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="toggleButton">Показати текст</button>
+
+  <div id="textBlock">
+    Це прихований текст, який з’явиться при натисканні кнопки.
+  </div>
+
+  <script>
+    const button = document.getElementById("toggleButton");
+    const textBlock = document.getElementById("textBlock");
+
+    button.addEventListener("click", () => {
+      const isVisible = textBlock.style.display === "block";
+      textBlock.style.display = isVisible ? "none" : "block";
+      button.textContent = isVisible ? "Показати текст" : "Сховати текст";
+    });
+  </script>
+
+</body>
+</html>

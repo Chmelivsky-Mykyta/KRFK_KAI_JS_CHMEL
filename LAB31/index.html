@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Форма з асинхронним запитом</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #status {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Форма запиту</h2>
+
+  <form id="myForm">
+    <label for="name">Ваше ім’я:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+    <button type="submit">Надіслати</button>
+  </form>
+
+  <p id="status"></p>
+
+  <script>
+    const form = document.getElementById("myForm");
+    const status = document.getElementById("status");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); // Не перезавантажуємо сторінку
+
+      const name = document.getElementById("name").value;
+      status.textContent = "Очікування відповіді...";
+
+      // Імітація асинхронного запиту (наприклад, до сервера)
+      setTimeout(() => {
+        status.textContent = `Дякуємо, ${name}! Дані успішно надіслано.`;
+      }, 2000); // 2 секунди затримки
+    });
+  </script>
+
+</body>
+</html>

@@ -1,28 +1,20 @@
 // Варіант 16
-// Клас для демонстрації роботи this
-class Person {
-  constructor(name) {
-    this.name = name;
+// Клас Книга з методом опис()
+class Книга {
+  constructor(назва, автор, рік) {
+    this.назва = назва;
+    this.автор = автор;
+    this.рік = рік;
   }
 
-  sayHello() {
-    console.log("Привіт, я " + this.name);
-  }
-
-  delayedHello() {
-    // Втрата контексту this — потрібно використовувати стрілкову функцію
-    setTimeout(function () {
-      console.log("setTimeout (звичайна функція): Привіт, я " + this.name); // this → window або undefined
-    }, 1000);
-
-    // Коректно: стрілкова функція зберігає контекст this з класу
-    setTimeout(() => {
-      console.log("setTimeout (стрілкова функція): Привіт, я " + this.name); // this → Person
-    }, 2000);
+  // Метод, який повертає опис книги
+  опис() {
+    return `Книга "${this.назва}", автор: ${this.автор}, рік видання: ${this.рік}.`;
   }
 }
 
-const person = new Person("Микита");
+// Створення об'єкта книги
+const мояКнига = new Книга("Тіні забутих предків", "Михайло Коцюбинський", 1911);
 
-person.sayHello();     
-person.delayedHello(); 
+// Виклик методу опис()
+console.log(мояКнига.опис());

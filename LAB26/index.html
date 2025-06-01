@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>event.target vs event.currentTarget</title>
+  <style>
+    .container {
+      border: 2px solid #333;
+      padding: 20px;
+      width: 300px;
+    }
+
+    .button {
+      padding: 10px;
+      background-color: lightblue;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="container">
+    <button class="button" id="myButton">Натисни мене</button>
+  </div>
+
+  <script>
+    const container = document.getElementById("container");
+
+    container.addEventListener("click", function(event) {
+      console.log("event.target:", event.target);
+      console.log("event.currentTarget:", event.currentTarget);
+      
+      if (event.target === event.currentTarget) {
+        alert("Клік саме на контейнер");
+      } else {
+        alert("Клік на вкладений елемент (наприклад, кнопку)");
+      }
+    });
+  </script>
+
+</body>
+</html>

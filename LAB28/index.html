@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Останній візит</title>
+</head>
+<body>
+
+  <h2>Вітаємо на сторінці!</h2>
+  <p id="visitInfo">Перевірка останнього візиту...</p>
+
+  <script>
+    const infoBlock = document.getElementById("visitInfo");
+
+    // Отримуємо попередню дату візиту з localStorage
+    const lastVisit = localStorage.getItem("lastVisit");
+
+    if (lastVisit) {
+      infoBlock.textContent = `Ваш останній візит був: ${lastVisit}`;
+    } else {
+      infoBlock.textContent = "Це ваш перший візит на сторінку.";
+    }
+
+    // Зберігаємо поточну дату як новий останній візит
+    const currentDate = new Date().toLocaleString();
+    localStorage.setItem("lastVisit", currentDate);
+  </script>
+
+</body>
+</html>

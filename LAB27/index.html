@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Todo з делегуванням</title>
+  <style>
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      padding: 8px;
+      border-bottom: 1px solid #ccc;
+      cursor: pointer;
+    }
+
+    li.completed {
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+
+  <h3>Список завдань</h3>
+  <ul id="todoList">
+    <li>Прочитати розділ з програмування</li>
+    <li>Написати код</li>
+    <li>Перевірити результат</li>
+  </ul>
+
+  <script>
+    const todoList = document.getElementById("todoList");
+
+    // Делегування подій: навішуємо один обробник на весь список
+    todoList.addEventListener("click", function(event) {
+      if (event.target.tagName === "LI") {
+        event.target.classList.toggle("completed"); // Перемикаємо виконання
+      }

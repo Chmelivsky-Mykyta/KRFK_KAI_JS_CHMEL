@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Меню, що розгортається</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    #menu {
+      display: none;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: 200px;
+      background-color: #f8f8f8;
+    }
+
+    #menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #menu li {
+      padding: 5px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    #menu li:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="toggleMenu">Показати меню</button>
+
+  <div id="menu">
+    <ul>
+      <li>Головна</li>
+      <li>Про нас</li>
+      <li>Послуги</li>
+      <li>Контакти</li>
+    </ul>
+  </div>
+
+  <script>
+    const button = document.getElementById("toggleMenu");
+    const menu = document.getElementById("menu");
+
+    button.addEventListener("click", () => {
+      const isVisible = menu.style.display === "block";
+      menu.style.display = isVisible ? "none" : "block";
+      button.textContent = isVisible ? "Показати меню" : "Сховати меню";
+    });
+  </script>
+
+</body>
+</html>

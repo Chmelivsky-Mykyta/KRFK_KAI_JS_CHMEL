@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Таблиця з даними</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 50%;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #999;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+
+  <h3>Список студентів</h3>
+  <table id="studentTable">
+    <thead>
+      <tr>
+        <th>Ім’я</th>
+        <th>Вік</th>
+        <th>Спеціальність</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Дані будуть додані динамічно -->
+    </tbody>
+  </table>
+
+  <script>
+    // Масив об'єктів із даними
+    const students = [
+      { name: "Микита", age: 18, major: "Програмування" },
+      { name: "Олег", age: 21, major: "Математика" },
+      { name: "Андрій", age: 20, major: "Інженерія" }
+    ];
+
+    const tableBody = document.querySelector("#studentTable tbody");
+
+    // Додавання рядків до таблиці
+    students.forEach(student => {
+      const row = document.createElement("tr");
+
+      row.innerHTML = `
+        <td>${student.name}</td>
+        <td>${student.age}</td>
+        <td>${student.major}</td>
+      `;
+
+      tableBody.appendChild(row);
+    });
+  </script>
+
+</body>
+</html>

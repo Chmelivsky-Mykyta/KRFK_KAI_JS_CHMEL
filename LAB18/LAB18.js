@@ -1,17 +1,13 @@
 // Варіант 16
-// Функція для генерації випадкового числа в заданому діапазоні
-function getRandomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+// Початковий масив чисел
+let numbers = [5, 12, 25, 30, 7, 18, 42, 3];
 
-// Початковий масив (довжина зберігається, значення змінюються)
-let numbers = [0, 0, 0, 0, 0];
-
-// Діапазон
+// Заданий діапазон
 const min = 10;
-const max = 50;
+const max = 30;
 
-// Заміна всіх значень на випадкові числа
-let randomizedArray = numbers.map(() => getRandomNumber(min, max));
+// Фільтрація: залишити лише ті, що **не входять** у діапазон
+let filteredNumbers = numbers.filter(num => num < min || num > max);
 
-console.log("Масив з випадковими значеннями:", randomizedArray);
+console.log("Початковий масив:", numbers);
+console.log(`Масив без чисел у діапазоні [${min}, ${max}]:`, filteredNumbers);
